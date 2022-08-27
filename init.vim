@@ -24,6 +24,10 @@ call plug#begin('~/.local/share/nvim/plugged')
 call plug#end()
 
 
+"Prettier
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+nnoremap <C-D> :Prettier<CR>
+
 "emmet config
 let g:user_emmet_mode='n'
 let g:user_emmet_leader_key=','
