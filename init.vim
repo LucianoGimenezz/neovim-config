@@ -18,7 +18,18 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'airblade/vim-gitgutter'
   Plug 'ryanoasis/vim-devicons'
+  Plug 'pangloss/vim-javascript'
+  Plug 'maxmellon/vim-jsx-pretty'
+  Plug 'mattn/emmet-vim'
 call plug#end()
+
+
+"emmet config
+let g:user_emmet_mode='n'
+let g:user_emmet_leader_key=','
+let g:user_emmet_settings={
+      \'javascript':{ 'extends':'jsx'}
+  \ }
 
 set updatetime=250
 "Telescope config
@@ -89,7 +100,7 @@ require 'colorizer'.setup{
     'css';
     'javascript';
     'html';
-    'react'
+    'react';
   \ }
 EOF
 
