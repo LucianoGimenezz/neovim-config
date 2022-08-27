@@ -9,5 +9,12 @@
   "typescript.format.enabled": true,
   "typescript.format.semicolons": "insert",
   "typescript.suggest.paths": true,
-  "phpls.enable": true
+  "phpls.enable": true,
+  "languageserver": {
+    "sql": {
+      "command": "sql-language-server",
+      "args": ["up", "--method", "stdio"],
+      "filetypes": ["sql", "mysql"]
+    }
+  }
 }
