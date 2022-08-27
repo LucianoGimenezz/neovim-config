@@ -5,8 +5,25 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'tpope/vim-surround'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'joshdick/onedark.vim'
+  Plug 'sheerun/vim-polyglot'
+  Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
+  Plug 'othree/html5.vim', { 'for': 'html' }
+  Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+  Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+  Plug 'norcalli/nvim-colorizer.lua'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
+"Telescope config
+"Para buscar archivos
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+"Buscar una palabra 
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 "airline config
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
@@ -23,6 +40,8 @@ map <C-f> :NERDTreeFocus<CR>
 " theme config
 set termguicolors 
 colorscheme onedark 
+
+map <F3> :tabnew<CR>
 
 imap <C-v> <C-o>"+p
 syntax enable
@@ -43,6 +62,16 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set shiftround
+
+"Colorizer config 
+lua << EOF
+require 'colorizer'.setup{
+    'css';
+    'javascript';
+    'html';
+    'react'
+  \ }
+EOF
 
 " ------------------------------------------------- 
 "  COC-confi
