@@ -15,8 +15,12 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'kyazdani42/nvim-web-devicons'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
+set updatetime=250
 "Telescope config
 "Para buscar archivos
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
@@ -65,6 +69,22 @@ set shiftround
 
 "Colorizer config 
 lua << EOF
+require 'nvim-web-devicons'.setup{
+  \ -- your personnal icons can go here (to override)
+ -- you can specify color or cterm_color instead of specifying both of them
+ -- DevIcon will be appended to `name`
+ override = {
+  fish = {
+    icon = "",
+    color = "#428850",
+    cterm_color = "65",
+    name = "fish"
+  }
+ };
+ -- globally enable default icons (default to false)
+ -- will get overriden by `get_icons` option
+ default = true;
+  \ }
 require 'colorizer'.setup{
     'css';
     'javascript';
