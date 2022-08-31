@@ -26,6 +26,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     \ 'do': 'bash install.sh',
     \ }
   Plug 'junegunn/fzf'
+  Plug 'tpope/vim-commentary'
 call plug#end()
 
 
@@ -37,8 +38,10 @@ let g:LanguageClient_serverCommands = {
 set hidden
 
 
+" Vim commentary
 
-
+nnoremap <space>/ :Commentary<CR>
+vnoremap <space>/ :Commentary<CR>
 
 " note that if you are using Plug mapping you should not use `noremap` mappings.
 nmap <F5> <Plug>(lcn-menu)
